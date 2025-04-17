@@ -3,9 +3,47 @@ import React from "react"
 
 // native
 import { View, Text, StyleSheet, SafeAreaView } from "react-native"
+import { FlatList } from "react-native-gesture-handler"
 
 // components
 import MeetingCard from "../components/MeetingCard"
+
+const mockMeetings = [
+  {
+    id: 1,
+    meetingRoom: {
+      buildingId: "stanley",
+      id: "MR.0X",
+      name: "MR.0X",
+    },
+    customers: {
+      id: 1,
+      companyName: "Acme Corp",
+      customerName: "Jimmy",
+    },
+    startTime: "2025-04-17T08:30:00Z",
+    endTime: "2025-04-17T10:30:00Z",
+    qrCodeUrl: "https://my-app.com/availability-force/v1/meetings/1/qrcode",
+    bookedAt: "2025-04-16T12:00:00Z",
+  },
+  {
+    id: 2,
+    meetingRoom: {
+      buildingId: "stanley",
+      id: "MR.0Y",
+      name: "MR.0Y",
+    },
+    customers: {
+      id: 2,
+      companyName: "Beta Corp",
+      customerName: "Lara",
+    },
+    startTime: "2025-04-17T11:00:00Z",
+    endTime: "2025-04-17T12:30:00Z",
+    qrCodeUrl: "https://my-app.com/availability-force/v1/meetings/2/qrcode",
+    bookedAt: "2025-04-16T14:20:00Z",
+  },
+]
 
 const HomeScreen = () => {
   return (
@@ -14,9 +52,17 @@ const HomeScreen = () => {
         <Text style={styles.heading}>Hey Joe</Text>
         <Text style={styles.sectionTitle}>Meetings</Text>
 
-        <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
-        <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
-        <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
+        <FlatList
+          data={mockMeetings}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <MeetingCard
+              title={`${item.meetingRoom.id} ${item.customers.companyName}`}
+              time={`08:00 - 10:30`}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </SafeAreaView>
   )
