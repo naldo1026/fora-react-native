@@ -10,8 +10,8 @@ import BottomTabs from "./navigation/BottomTabs"
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello, Jade</Text>
       <StatusBar style="auto" />
+      <Text>Hello, Joe</Text>
       <BottomTabs />
     </View>
   )
