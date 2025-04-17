@@ -27,9 +27,29 @@ const BottomTabs = () => {
 
             return <Ionicons name={iconName as any} size={size} color={color} />
           },
-          tabBarActiveTintColor: "#000",
-          tabBarInactiveBackgroundColor: "gray",
+          tabBarActiveTintColor: "black",
           headerShown: false,
+
+          tabBarStyle: {
+            paddingTop: 5,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 70,
+            backgroundColor: "white",
+            borderTopWidth: 0,
+            elevation: 10,
+            shadowColor: "#000",
+            shadowOpacity: 0.05,
+            shadowOffset: { width: 0, height: -3 },
+            shadowRadius: 10,
+          },
+
+          tabBarLabelStyle: {
+            fontSize: 12,
+            paddingBottom: 8,
+          },
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
