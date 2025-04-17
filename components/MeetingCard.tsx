@@ -19,11 +19,16 @@ const MeetingCard = ({ title, time }: MeetingCardType) => {
 }
 
 const styles = StyleSheet.create({
-  card: {},
+  card: {
+    padding: 15,
+    backgroundColor: "white",
+    borderRadius: 10,
+    marginVertical: 5,
+  },
 
-  title: {},
+  title: { color: "#545F71", fontWeight: "700", fontSize: 18 },
 
-  time: {},
+  time: { color: "#545F71", fontSize: 15, marginTop: 2 },
 })
 
 export default MeetingCard

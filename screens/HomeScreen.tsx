@@ -15,6 +15,8 @@ const HomeScreen = () => {
         <Text style={styles.sectionTitle}>Meetings</Text>
 
         <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
+        <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
+        <MeetingCard title={"MR.0X - ACME CORP"} time={"08:30 - 10:00"} />
       </View>
     </SafeAreaView>
   )
@@ -23,7 +25,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#F9F9F9",
   },
 
   container: {
