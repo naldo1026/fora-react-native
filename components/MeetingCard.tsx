@@ -2,7 +2,7 @@
 import React from "react"
 
 // native
-import { View, Text } from "react-native"
+import { View, Text, StyleSheet } from "react-native"
 
 type MeetingCardType = {
   title: string
@@ -11,11 +11,19 @@ type MeetingCardType = {
 
 const MeetingCard = ({ title, time }: MeetingCardType) => {
   return (
-    <View>
-      <Text>{title}</Text>
-      <Text>{time}</Text>
+    <View style={styles.card}>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.time}>{time}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  card: {},
+
+  title: {},
+
+  time: {},
+})
 
 export default MeetingCard
