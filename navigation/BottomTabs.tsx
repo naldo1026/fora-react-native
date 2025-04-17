@@ -31,7 +31,10 @@ const BottomTabs = () => {
           tabBarInactiveBackgroundColor: "gray",
           headerShown: false,
         })}
-      ></Tab.Navigator>
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Other" component={OtherScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
