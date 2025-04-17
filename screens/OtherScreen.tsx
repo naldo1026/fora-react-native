@@ -4,10 +4,10 @@ import React from "react"
 // native
 import { View, Text, StyleSheet } from "react-native"
 
-const HomeScreen = () => {
+const OtherScreen = () => {
   return (
     <View>
-      <Text>This is the Home Screen</Text>
+      <Text>This is the Other Screen</Text>
     </View>
   )
 }
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
+export default OtherScreen
