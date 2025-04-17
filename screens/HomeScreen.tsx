@@ -2,21 +2,31 @@
 import React from "react"
 
 // native
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, SafeAreaView } from "react-native"
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>This is the Home Screen</Text>
-    </View>
+    <SafeAreaView style={styles.safe}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Hey Joe</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safe: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  container: {
+    paddingHorizontal: 20,
+    paddingTop: 30,
+    flex: 1,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
   },
 })
 

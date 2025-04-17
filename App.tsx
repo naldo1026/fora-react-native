@@ -10,8 +10,6 @@ import BottomTabs from "./navigation/BottomTabs"
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text>Hello, Joe</Text>
       <BottomTabs />
     </View>
   )
@@ -20,8 +18,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 })
