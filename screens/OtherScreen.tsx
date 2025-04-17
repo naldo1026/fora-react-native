@@ -6,7 +6,7 @@ import { View, Text, StyleSheet } from "react-native"
 
 const OtherScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>This is the Other Screen</Text>
     </View>
   )
