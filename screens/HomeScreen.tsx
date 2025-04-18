@@ -45,14 +45,19 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
-        <Picker
-          selectedValue={selectedBuilding}
-          onValueChange={(value) => setSelectedBuilding(value)}
-        >
-          <Picker.Item label="Stanley Building" value="stanley" />
-          <Picker.Item label="Chancery House" value="chancery" />
-        </Picker>
-        <Text style={styles.heading}>Hey Joe</Text>
+        <View style={styles.headerRow}>
+          <Text style={styles.heading}>Hey Joe</Text>
+
+          <Picker
+            selectedValue={selectedBuilding}
+            onValueChange={(value) => setSelectedBuilding(value)}
+            style={styles.picker}
+          >
+            <Picker.Item label="Stanley Building" value="stanley" />
+            <Picker.Item label="Chancery House" value="chancery" />
+          </Picker>
+        </View>
+
         <Text style={styles.sectionTitle}>Meetings</Text>
 
         <FlatList
@@ -79,8 +84,18 @@ const styles = StyleSheet.create({
 
   container: {
     paddingHorizontal: 20,
-    paddingTop: 30,
     flex: 1,
+  },
+
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  picker: {
+    width: 160,
+    height: "80%",
   },
 
   heading: {
