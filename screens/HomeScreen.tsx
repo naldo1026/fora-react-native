@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
 } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
+import { Picker } from "@react-native-picker/picker"
 
 // components
 import MeetingCard from "../components/MeetingCard"
@@ -23,8 +24,10 @@ import { Meeting } from "../services/meetings"
 const HomeScreen = () => {
   const [meetings, setMeetings] = useState<Meeting[]>([])
   const [loading, setLoading] = useState(true)
+  const [selectedBuilding, setSelectedBuilding] = useState("stanley")
 
   useEffect(() => {
+    setLoading(true)
     getMeetings().then((data) => {
       setMeetings(data)
       setLoading(false)
