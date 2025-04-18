@@ -32,7 +32,7 @@ const HomeScreen = () => {
       setMeetings(data)
       setLoading(false)
     })
-  }, [])
+  }, [selectedBuilding])
 
   if (loading) {
     return (
