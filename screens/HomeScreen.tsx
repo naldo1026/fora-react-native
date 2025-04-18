@@ -28,7 +28,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setLoading(true)
-    getMeetings().then((data) => {
+    getMeetings(selectedBuilding).then((data) => {
       setMeetings(data)
       setLoading(false)
     })

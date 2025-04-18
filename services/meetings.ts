@@ -16,10 +16,10 @@ interface Meeting {
   bookedAt: string
 }
 
-const getMeetings = (): Promise<Meeting[]> => {
+const getMeetings = (buildingId: string): Promise<Meeting[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve([
+      const meetingsData: Meeting[] = [
         {
           id: 1,
           meetingRoom: {
@@ -75,11 +75,29 @@ const getMeetings = (): Promise<Meeting[]> => {
             "https://my-app.com/availability-force/v1/meetings/2/qrcode",
           bookedAt: "2025-04-16T14:20:00Z",
         },
-
         {
           id: 4,
           meetingRoom: {
-            buildingId: "stanley",
+            buildingId: "chancery house",
+            id: "MR.0A",
+            name: "MR.0A",
+          },
+          customers: {
+            id: 6,
+            companyName: "Apple Inc.",
+            customerName: "Steve",
+          },
+          startTime: "15:30", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          endTime: "16:00", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          qrCodeUrl:
+            "https://my-app.com/availability-force/v1/meetings/2/qrcode",
+          bookedAt: "2025-04-16T14:20:00Z",
+        },
+
+        {
+          id: 5,
+          meetingRoom: {
+            buildingId: "chancery house",
             id: "MR.0C",
             name: "MR.0C",
           },
@@ -94,7 +112,13 @@ const getMeetings = (): Promise<Meeting[]> => {
             "https://my-app.com/availability-force/v1/meetings/2/qrcode",
           bookedAt: "2025-04-16T14:20:00Z",
         },
-      ])
+      ]
+
+      const filteredData = meetingsData.filter(
+        (meeting) => meeting.meetingRoom.buildingId === buildingId
+      )
+
+      resolve(filteredData)
     }, 1000)
   })
 }
