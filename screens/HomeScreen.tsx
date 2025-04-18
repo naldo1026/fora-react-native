@@ -45,7 +45,10 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
-        <Picker>
+        <Picker
+          selectedValue={selectedBuilding}
+          onValueChange={(value) => setSelectedBuilding(value)}
+        >
           <Picker.Item label="Stanley Building" value="stanley" />
           <Picker.Item label="Chancery House" value="chancery" />
         </Picker>
