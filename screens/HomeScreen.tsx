@@ -34,14 +34,6 @@ const HomeScreen = () => {
     })
   }, [selectedBuilding])
 
-  if (loading) {
-    return (
-      <SafeAreaView style={styles.centered}>
-        <ActivityIndicator size="large" color="black" />
-      </SafeAreaView>
-    )
-  }
-
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
@@ -60,17 +52,23 @@ const HomeScreen = () => {
 
         <Text style={styles.sectionTitle}>Meetings</Text>
 
-        <FlatList
-          data={meetings}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <MeetingCard
-              title={`${item.meetingRoom.id} ${item.customers.companyName}`}
-              time={`${item.startTime} - ${item.endTime}`}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-        />
+        {loading ? (
+          <SafeAreaView style={styles.centered}>
+            <ActivityIndicator size="large" color="black" />
+          </SafeAreaView>
+        ) : (
+          <FlatList
+            data={meetings}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <MeetingCard
+                title={`${item.meetingRoom.id} ${item.customers.companyName}`}
+                time={`${item.startTime} - ${item.endTime}`}
+              />
+            )}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
       </View>
     </SafeAreaView>
   )
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
 
   picker: {
     width: 160,
-    height: "80%",
+    height: "50%",
   },
 
   heading: {
