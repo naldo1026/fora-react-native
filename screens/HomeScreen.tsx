@@ -37,17 +37,16 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
+        <Picker
+          selectedValue={selectedBuilding}
+          onValueChange={(value) => setSelectedBuilding(value)}
+          style={styles.picker}
+        >
+          <Picker.Item label="Stanley Building" value="stanley" />
+          <Picker.Item label="Chancery House" value="chancery" />
+        </Picker>
         <View style={styles.headerRow}>
           <Text style={styles.heading}>Hey Joe</Text>
-
-          <Picker
-            selectedValue={selectedBuilding}
-            onValueChange={(value) => setSelectedBuilding(value)}
-            style={styles.picker}
-          >
-            <Picker.Item label="Stanley Building" value="stanley" />
-            <Picker.Item label="Chancery House" value="chancery" />
-          </Picker>
         </View>
 
         <Text style={styles.sectionTitle}>Meetings</Text>
@@ -92,8 +91,8 @@ const styles = StyleSheet.create({
   },
 
   picker: {
-    width: 160,
-    height: "50%",
+    width: "auto",
+    height: "23%",
   },
 
   heading: {
