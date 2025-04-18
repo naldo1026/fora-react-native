@@ -78,7 +78,7 @@ const getMeetings = (buildingId: string): Promise<Meeting[]> => {
         {
           id: 4,
           meetingRoom: {
-            buildingId: "chancery house",
+            buildingId: "chancery",
             id: "MR.0A",
             name: "MR.0A",
           },
@@ -97,7 +97,7 @@ const getMeetings = (buildingId: string): Promise<Meeting[]> => {
         {
           id: 5,
           meetingRoom: {
-            buildingId: "chancery house",
+            buildingId: "chancery",
             id: "MR.0C",
             name: "MR.0C",
           },

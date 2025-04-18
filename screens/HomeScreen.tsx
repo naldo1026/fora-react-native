@@ -45,6 +45,10 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
+        <Picker>
+          <Picker.Item label="Stanley Building" value="stanley" />
+          <Picker.Item label="Chancery House" value="chancery" />
+        </Picker>
         <Text style={styles.heading}>Hey Joe</Text>
         <Text style={styles.sectionTitle}>Meetings</Text>
 
