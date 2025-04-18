@@ -1,4 +1,22 @@
-const getMeetings = (): Promise<any> => {
+interface Meeting {
+  id: number
+  meetingRoom: {
+    buildingId: string
+    id: string
+    name: string
+  }
+  customers: {
+    id: number
+    companyName: string
+    customerName: string
+  }
+  startTime: string
+  endTime: string
+  qrCodeUrl: string
+  bookedAt: string
+}
+
+const getMeetings = (): Promise<Meeting[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -42,3 +60,5 @@ const getMeetings = (): Promise<any> => {
     }, 1000)
   })
 }
+
+export { getMeetings, Meeting }

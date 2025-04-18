@@ -1,51 +1,44 @@
 // react
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 // native
-import { View, Text, StyleSheet, SafeAreaView } from "react-native"
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  ActivityIndicator,
+} from "react-native"
 import { FlatList } from "react-native-gesture-handler"
 
 // components
 import MeetingCard from "../components/MeetingCard"
 
-const mockMeetings = [
-  {
-    id: 1,
-    meetingRoom: {
-      buildingId: "stanley",
-      id: "MR.0X",
-      name: "MR.0X",
-    },
-    customers: {
-      id: 1,
-      companyName: "Acme Corp",
-      customerName: "Jimmy",
-    },
-    startTime: "2025-04-17T08:30:00Z",
-    endTime: "2025-04-17T10:30:00Z",
-    qrCodeUrl: "https://my-app.com/availability-force/v1/meetings/1/qrcode",
-    bookedAt: "2025-04-16T12:00:00Z",
-  },
-  {
-    id: 2,
-    meetingRoom: {
-      buildingId: "stanley",
-      id: "MR.0Y",
-      name: "MR.0Y",
-    },
-    customers: {
-      id: 2,
-      companyName: "Beta Corp",
-      customerName: "Lara",
-    },
-    startTime: "2025-04-17T11:00:00Z",
-    endTime: "2025-04-17T12:30:00Z",
-    qrCodeUrl: "https://my-app.com/availability-force/v1/meetings/2/qrcode",
-    bookedAt: "2025-04-16T14:20:00Z",
-  },
-]
+// mocked data
+import { getMeetings } from "../services/meetings"
+
+// types
+import { Meeting } from "../services/meetings"
 
 const HomeScreen = () => {
+  const [meetings, setMeetings] = useState<Meeting[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getMeetings().then((data) => {
+      setMeetings(data)
+      setLoading(false)
+    })
+  }, [])
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.centered}>
+        <ActivityIndicator size="large" color="black" />
+      </SafeAreaView>
+    )
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
@@ -53,7 +46,7 @@ const HomeScreen = () => {
         <Text style={styles.sectionTitle}>Meetings</Text>
 
         <FlatList
-          data={mockMeetings}
+          data={meetings}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <MeetingCard
@@ -89,6 +82,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     marginVertical: 20,
+  },
+
+  centered: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 })
 
