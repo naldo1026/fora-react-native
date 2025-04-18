@@ -51,7 +51,7 @@ const HomeScreen = () => {
           renderItem={({ item }) => (
             <MeetingCard
               title={`${item.meetingRoom.id} ${item.customers.companyName}`}
-              time={`08:00 - 10:30`}
+              time={`${item.startTime} - ${item.endTime}`}
             />
           )}
           showsVerticalScrollIndicator={false}

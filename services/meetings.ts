@@ -32,8 +32,8 @@ const getMeetings = (): Promise<Meeting[]> => {
             companyName: "Acme Corp",
             customerName: "Jimmy",
           },
-          startTime: "2025-04-17T08:30:00Z",
-          endTime: "2025-04-17T10:30:00Z",
+          startTime: "08:30", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          endTime: "10:00", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
           qrCodeUrl:
             "https://my-app.com/availability-force/v1/meetings/1/qrcode",
           bookedAt: "2025-04-16T12:00:00Z",
@@ -50,8 +50,46 @@ const getMeetings = (): Promise<Meeting[]> => {
             companyName: "Beta Corp",
             customerName: "Lara",
           },
-          startTime: "2025-04-17T11:00:00Z",
-          endTime: "2025-04-17T12:30:00Z",
+          startTime: "12:30", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          endTime: "14:00", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          qrCodeUrl:
+            "https://my-app.com/availability-force/v1/meetings/2/qrcode",
+          bookedAt: "2025-04-16T14:20:00Z",
+        },
+
+        {
+          id: 3,
+          meetingRoom: {
+            buildingId: "stanley",
+            id: "MR.0T",
+            name: "MR.0T",
+          },
+          customers: {
+            id: 2,
+            companyName: "Tesla Inc.",
+            customerName: "Elon",
+          },
+          startTime: "13:30", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          endTime: "15:00", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          qrCodeUrl:
+            "https://my-app.com/availability-force/v1/meetings/2/qrcode",
+          bookedAt: "2025-04-16T14:20:00Z",
+        },
+
+        {
+          id: 4,
+          meetingRoom: {
+            buildingId: "stanley",
+            id: "MR.0C",
+            name: "MR.0C",
+          },
+          customers: {
+            id: 2,
+            companyName: "Coca Cola Inc.",
+            customerName: "Ben",
+          },
+          startTime: "15:30", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
+          endTime: "16:00", // should be fulltimestamp, just using this to show nice on the ui. web version has a function that works with the timestamp
           qrCodeUrl:
             "https://my-app.com/availability-force/v1/meetings/2/qrcode",
           bookedAt: "2025-04-16T14:20:00Z",
