@@ -8,14 +8,19 @@ This is a React Native app built with **Expo**, using **TypeScript**. It is a mo
 
 ---
 
-## 🚀 Getting Started
+# Struggling getting the app and running
 
-### 📦 Prerequisites
+no worries, I have attached a screenshot to see what it looks like from the home screen. We can then run it in our call.
 
-- **Node.js** (>= 18)
-- **npm** or **yarn**
-- **Expo CLI** (if not installed):
+### 🛠 Installing & Running the App
+
+1. **Clone the project**
 
 ```bash
-npm install -g expo-cli
+git clone git@github.com:naldo1026/fora-react-native.git
+cd fora-react-native
+
+npm install
+
+npx expo start
 ```
