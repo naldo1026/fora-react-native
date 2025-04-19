@@ -52,9 +52,11 @@ const HomeScreen = () => {
         <Text style={styles.sectionTitle}>Meetings</Text>
 
         {loading ? (
-          <SafeAreaView style={styles.centered}>
-            <ActivityIndicator size="large" color="black" />
-          </SafeAreaView>
+          <ActivityIndicator
+            style={styles.indicator}
+            size="large"
+            color="black"
+          />
         ) : (
           <FlatList
             data={meetings}
@@ -95,6 +97,10 @@ const styles = StyleSheet.create({
     height: "23%",
   },
 
+  indicator: {
+    marginTop: 160,
+  },
+
   heading: {
     fontSize: 24,
     fontWeight: "700",
@@ -109,7 +115,6 @@ const styles = StyleSheet.create({
   centered: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
   },
 })
 
